@@ -32,4 +32,8 @@ public class Carrera {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public Carrera(String nombre) {
+        this.nombre = nombre;
+    }
 }

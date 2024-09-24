@@ -29,4 +29,14 @@ public class Inscripcion {
 
     @Column(name = "graduado")
     private boolean graduado;
+
+    @Override
+    public String toString() {
+        return "Inscripcion{" +
+                "inscripcion_id_estudiante=" + inscripcion_id_estudiante +
+                ", inscripcion_id_carrera=" + inscripcion_id_carrera +
+                ", fecha_inscripcion=" + fecha_inscripcion +
+                ", graduado=" + graduado +
+                '}';
+    }
 }

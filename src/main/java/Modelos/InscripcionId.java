@@ -7,11 +7,6 @@ public class InscripcionId implements Serializable {
     private int inscripcion_id_estudiante;
     private int inscripcion_id_carrera;
 
-    public InscripcionId(int idEstudiante, int idCarrera) {
-        this.inscripcion_id_estudiante = idEstudiante;
-        this.inscripcion_id_carrera = idCarrera;
-    }
-
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
