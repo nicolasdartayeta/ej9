@@ -24,11 +24,11 @@ public class Inscripcion {
     @JoinColumn(name = "inscripcion_id_carrera", insertable = false, updatable = false)
     private Carrera carrera;
 
-    @Column(name = "fecha_inscripcion")
+    @Column(name = "fecha_inscripcion", nullable = false)
     private Date fecha_inscripcion;
 
-    @Column(name = "graduado")
-    private boolean graduado;
+    @Column(name = "fecha_graduacion", nullable = true)
+    private Date fecha_graduacion;
 
     @Override
     public String toString() {
@@ -36,7 +36,7 @@ public class Inscripcion {
                 "inscripcion_id_estudiante=" + inscripcion_id_estudiante +
                 ", inscripcion_id_carrera=" + inscripcion_id_carrera +
                 ", fecha_inscripcion=" + fecha_inscripcion +
-                ", graduado=" + graduado +
+                ", fecha_graduacion=" + fecha_graduacion +
                 '}';
     }
 }

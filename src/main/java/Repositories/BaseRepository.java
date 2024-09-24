@@ -52,4 +52,6 @@ public class BaseRepository<Entity, Id extends Serializable> implements GenericR
         TypedQuery<Entity> query = em.createQuery(jpql, entityClass);
         return query.getResultList();
     }
+
+
 }
