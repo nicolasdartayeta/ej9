@@ -21,4 +21,10 @@ public class CarreraRepository extends BaseRepository<Carrera, Integer> {
 
         return result;
     }
+
+    public List<Carrera> getCarrrerasConInscriptos() {
+         String jqpl = "Select c from Inscripcion i left join Carrera c on i.inscripcion_id_carrera = c.id group by c.id order by count(c) desc ";
+
+        return em.createQuery(jqpl, Carrera.class).getResultList();
+    }
 }

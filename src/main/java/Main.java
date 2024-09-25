@@ -45,9 +45,9 @@ public class Main {
 //        List<Inscripcion>  result = ir.findAll();
 //        result.forEach(System.out::println);
 
-        CriterioOrdenamiento criterioNombre = new CriterioOrdenamientoNombre('c');
+//        CriterioOrdenamiento criterioNombre = new CriterioOrdenamientoNombre('c');
 
-        cr.reporte(criterioNombre);
+        System.out.println(cr.getCarrrerasConInscriptos());
     }
 
 }
