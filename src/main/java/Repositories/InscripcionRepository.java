@@ -4,8 +4,12 @@ import Modelos.Carrera;
 import Modelos.Estudiante;
 import Modelos.Inscripcion;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 import java.util.Date;
+import java.util.List;
+
+import Helpers.CriterioBusqueda;
 
 public class InscripcionRepository extends BaseRepository<Inscripcion, Integer> {
     public InscripcionRepository(EntityManager em) {

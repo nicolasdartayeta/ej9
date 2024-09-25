@@ -30,6 +30,14 @@ public class Inscripcion {
     @Column(name = "fecha_graduacion", nullable = true)
     private Date fecha_graduacion;
 
+    public Date getInscripcion(){
+        return fecha_inscripcion;
+    }
+
+    public Date getGraduacion(){
+        return fecha_graduacion;
+    }
+
     @Override
     public String toString() {
         return "Inscripcion{" +

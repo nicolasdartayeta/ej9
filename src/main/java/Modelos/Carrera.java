@@ -36,4 +36,12 @@ public class Carrera {
     public Carrera(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Carrera[" +
+                "id=" + id +
+                ", nombre='" + nombre +
+                ']';
+    }
 }
