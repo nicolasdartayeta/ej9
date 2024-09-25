@@ -1,6 +1,8 @@
 import Helpers.CriterioAND;
+import Helpers.CriterioANDOrdenamiento;
 import Helpers.CriterioBusqueda;
 import Helpers.CriterioOrdenamiento;
+import Helpers.CriterioOrdenamientoInscripcion;
 import Helpers.CriterioBusquedaCiudadResidencia;
 import Helpers.CriterioBusquedaEstudianteCarrera;
 import Helpers.CriterioBusquedaGenero;
@@ -59,8 +61,10 @@ public class Main {
         CriterioBusqueda criterioAND = new CriterioAND(criterioEstudianteCarrera, criterioCiudad);
 
         CriterioOrdenamiento criterioNombre = new CriterioOrdenamientoNombre('c');
+        CriterioOrdenamiento criterioInscripcion = new CriterioOrdenamientoInscripcion('i');
+        CriterioOrdenamiento critAND =  new CriterioANDOrdenamiento(criterioNombre, criterioInscripcion);
 
-        System.out.println(cr.reporte(criterioNombre));
+        cr.reporte(critAND);
     }
 
 }

@@ -11,7 +11,7 @@ public class CriterioOrdenamientoNombre implements CriterioOrdenamiento{
     @Override
     public String getCriterioOrdenamiento() {
 
-        return "ORDER BY " + this.alias + ".nombre ASC";
+        return this.alias + ".nombre ASC";
     }
     
 }
