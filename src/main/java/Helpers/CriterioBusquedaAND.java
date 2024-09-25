@@ -1,7 +1,7 @@
 package Helpers;
 
-public class CriterioAND extends CriterioOperacionBinaria{
-    public CriterioAND(CriterioBusqueda criterioBusqueda1, CriterioBusqueda criterioBusqueda2) {
+public class CriterioBusquedaAND extends CriterioBusquedaBinario {
+    public CriterioBusquedaAND(CriterioBusqueda criterioBusqueda1, CriterioBusqueda criterioBusqueda2) {
         super(criterioBusqueda1, criterioBusqueda2);
     }
 

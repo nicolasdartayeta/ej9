@@ -1,13 +1,5 @@
-import Helpers.CriterioAND;
-import Helpers.CriterioBusqueda;
 import Helpers.CriterioOrdenamiento;
-import Helpers.CriterioBusquedaCiudadResidencia;
-import Helpers.CriterioBusquedaEstudianteCarrera;
-import Helpers.CriterioBusquedaGenero;
-import Helpers.CriterioBusquedaLibretaUniversitaria;
 import Helpers.CriterioOrdenamientoNombre;
-import Modelos.Carrera;
-import Modelos.Estudiante;
 import Repositories.CarreraRepository;
 import Repositories.EstudianteRepository;
 import Repositories.InscripcionRepository;
@@ -22,14 +14,14 @@ public class Main {
         CarreraRepository cr = new CarreraRepository(em);
         InscripcionRepository ir = new InscripcionRepository(em);
 
-        Estudiante esteban = er.getById(52);
-        Estudiante nacho = er.getById(53);
-        Estudiante fede = er.getById(54);
-        Estudiante santi = er.getById(55);
-        Carrera soft = cr.getById(2);
-        Carrera matematica = cr.getById(52);
-        Carrera sociales = cr.getById(102);
-        Carrera arqui = cr.getById(1);
+//        Estudiante esteban = er.getById(52);
+//        Estudiante nacho = er.getById(53);
+//        Estudiante fede = er.getById(54);
+//        Estudiante santi = er.getById(55);
+//        Carrera soft = cr.getById(2);
+//        Carrera matematica = cr.getById(52);
+//        Carrera sociales = cr.getById(102);
+//        Carrera arqui = cr.getById(1);
 
         // er.persist(esteban);
         // er.persist(nacho);
@@ -53,14 +45,9 @@ public class Main {
 //        List<Inscripcion>  result = ir.findAll();
 //        result.forEach(System.out::println);
 
-
-        CriterioBusqueda criterioEstudianteCarrera = new CriterioBusquedaEstudianteCarrera(soft);
-        CriterioBusqueda criterioCiudad = new CriterioBusquedaCiudadResidencia("tandil", 'e');
-        CriterioBusqueda criterioAND = new CriterioAND(criterioEstudianteCarrera, criterioCiudad);
-
         CriterioOrdenamiento criterioNombre = new CriterioOrdenamientoNombre('c');
 
-        System.out.println(cr.reporte(criterioNombre));
+        cr.reporte(criterioNombre);
     }
 
 }

@@ -30,8 +30,8 @@ public class JoinEstCarIns {
     public JoinEstCarIns(Carrera carrera, Inscripcion inscripcion, Estudiante estudiante){
         this.dni = estudiante.getDni();
         this.edad = estudiante.getEdad();
-        this.fecha_graduacion = inscripcion.getInscripcion();
-        this.fecha_inscripcion = inscripcion.getGraduacion();
+        this.fecha_graduacion = inscripcion.getGraduacion();
+        this.fecha_inscripcion = inscripcion.getInscripcion();
         this.join_id_carrera = carrera.getId();
         this.join_id_estudiante = estudiante.getId();
         this.libreta = estudiante.getLibreta();
