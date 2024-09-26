@@ -1,17 +1,18 @@
-package Repositories;
+package Repositories.JPAImplementation;
 
+import Repositories.GenericRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class BaseRepository<Entity, Id extends Serializable> implements GenericRepository<Entity, Id> {
+public class JPABaseRepository<Entity, Id extends Serializable> implements GenericRepository<Entity, Id> {
     EntityManager em;
     Class<Entity> entityClass;
     Class<Id> idClass;
 
-    public BaseRepository(EntityManager em, Class<Entity> entityClass, Class<Id> idClass) {
+    public JPABaseRepository(EntityManager em, Class<Entity> entityClass, Class<Id> idClass) {
         this.em = em;
         this.entityClass = entityClass;
         this.idClass = idClass;
