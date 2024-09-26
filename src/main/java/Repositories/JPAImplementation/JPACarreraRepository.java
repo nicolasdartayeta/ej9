@@ -7,6 +7,7 @@ import Modelos.Carrera;
 import Modelos.JoinEstCarIns;
 import Repositories.CarreraRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 public class JPACarreraRepository extends JPABaseRepository<Carrera, Integer> implements CarreraRepository {
     public JPACarreraRepository(EntityManager em) {
@@ -27,5 +28,11 @@ public class JPACarreraRepository extends JPABaseRepository<Carrera, Integer> im
          String jqpl = "Select c from Inscripcion i left join Carrera c on i.inscripcion_id_carrera = c.id group by c.id order by count(c) desc ";
 
         return em.createQuery(jqpl, Carrera.class).getResultList();
+    }
+
+    public List<Carrera> getAllCarrerasOrdenadas(CriterioOrdenamiento crit){
+        String q = "SELECT c FROM Carrera c ORDER BY " + crit.getCriterioOrdenamiento();
+        TypedQuery<Carrera> result = em.createQuery(q, this.entityClass);
+        return result.getResultList();
     }
 }
