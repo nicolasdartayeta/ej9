@@ -22,7 +22,11 @@ public class JPAInscripcionRepository extends JPABaseRepository<Inscripcion, Int
 
         String jqpl = "INSERT INTO Inscripcion (inscripcion_id_estudiante, inscripcion_id_carrera, fecha_inscripcion, fecha_graduacion) VALUES (?1, ?2, ?3, ?4)";
 
-        em.createQuery(jqpl).setParameter(1,  estudiante.getId()).setParameter(2, carrera.getId()).setParameter(3, new Date()).setParameter(4, null).executeUpdate();
+        try {
+            em.createQuery(jqpl).setParameter(1,  estudiante.getId()).setParameter(2, carrera.getId()).setParameter(3, new Date()).setParameter(4, null).executeUpdate();
+        } catch (Exception e) {
+            System.out.println(estudiante.getNombre() + " ya esta matriculado en " + carrera.getNombre());
+        }
 
         em.getTransaction().commit();
     }

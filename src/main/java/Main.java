@@ -5,12 +5,8 @@ import Modelos.Estudiante;
 import Repositories.CarreraRepository;
 import Repositories.EstudianteRepository;
 import Repositories.InscripcionRepository;
-import Repositories.JPAImplementation.JPACarreraRepository;
-import Repositories.JPAImplementation.JPAEstudianteRepository;
-import Repositories.JPAImplementation.JPAInscripcionRepository;
 import Services.ReporteService;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Persistence;
+
 
 import java.util.Scanner;
 
@@ -118,6 +114,8 @@ public class Main {
                 default: System.exit(0);
 
             }
+
+            scanner.close();
         }
     }
 

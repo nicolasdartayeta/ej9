@@ -4,8 +4,6 @@ import Repositories.CarreraRepository;
 import Repositories.EstudianteRepository;
 import Repositories.InscripcionRepository;
 
-import java.sql.SQLException;
-
 public abstract class RepositoryFactory {
     public static final int POSTGRESQL = 1;
 
