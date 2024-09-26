@@ -21,7 +21,7 @@ public class Main {
         int opcion = 1;
         Scanner scanner = new Scanner(System.in);
 
-        while (opcion >= 0  && opcion <= 7) {
+        while (opcion >= 0  && opcion <= 8) {
             System.out.println("Ingresa opcion: ");
 
             System.out.println("0. Crear Estudiante");
@@ -32,6 +32,7 @@ public class Main {
             System.out.println("5. Recuperar las carreras con estudiantes inscriptos, y ordenar por cantidad de inscriptos.");
             System.out.println("6. Recuperar los estudiantes de una determinada carrera, filtrado por ciudad de residencia.");
             System.out.println("7. Generar un reporte de las carreras, que para cada carrera incluya información de los inscriptos y egresados por año. Se deben ordenar las carreras alfabéticamente, y presentar los años de manera cronológica.");
+            System.out.println("8. Crear una carrera");
             System.out.println("Otro numero para salir");
             System.out.println();
 
@@ -108,8 +109,14 @@ public class Main {
                 case 7:
 //                    Generar un reporte de las carreras, que para cada carrera incluya información de los
 //                    inscriptos y egresados por año. Se deben ordenar las carreras alfabéticamente, y presentar los años de manera cronológica.
-                    ReporteService reporteService = new ReporteService();
+                    ReporteService reporteService = new ReporteService(JPARepositoryFactory.getInstance());
                     System.out.println(reporteService.getReporte());
+                    break;
+                case 8:
+                    System.out.println("Ingrese el nombre de la carrera: ");
+                    String nombre2 = scanner.next();
+
+                    cr.persist(new Carrera(nombre2));
                     break;
                 default: System.exit(0);
 
