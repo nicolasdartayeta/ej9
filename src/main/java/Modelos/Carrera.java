@@ -42,6 +42,6 @@ public class Carrera {
         return "Carrera[" +
                 "id=" + id +
                 ", nombre='" + nombre +
-                ']';
+                "]\n";
     }
 }

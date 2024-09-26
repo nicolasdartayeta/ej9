@@ -120,6 +120,6 @@ public class Estudiante {
                 ", dni=" + dni +
                 ", ciudad='" + ciudad + '\'' +
                 ", libreta=" + libreta +
-                '}';
+                "}\n";
     }
 }

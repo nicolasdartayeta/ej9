@@ -18,8 +18,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 
 public class ReporteService {
-    
-    public void getReporte(){
+    public ReporteCarrerasDTO getReporte(){
 
         EntityManager em = Persistence.createEntityManagerFactory("persistencia").createEntityManager();
         JPACarreraRepository cr = new JPACarreraRepository(em);
@@ -48,6 +47,6 @@ public class ReporteService {
             dto.addItemReporte(itemReporte);
         }
 
-        System.out.println(dto);
+        return dto;
     }
 }
