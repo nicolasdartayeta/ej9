@@ -6,6 +6,7 @@ import Helpers.CriterioOrdenamiento;
 import Modelos.Carrera;
 import Modelos.JoinEstCarIns;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 public class CarreraRepository extends BaseRepository<Carrera, Integer> {
     public CarreraRepository(EntityManager em) {
@@ -20,6 +21,12 @@ public class CarreraRepository extends BaseRepository<Carrera, Integer> {
         System.out.println(result);
 
         return result;
+    }
+
+    public List<Carrera> getAllCarrerasOrdenadas(CriterioOrdenamiento crit){
+        String q = "SELECT c FROM Carrera c ORDER BY " + crit.getCriterioOrdenamiento();
+        TypedQuery<Carrera> result = em.createQuery(q, this.entityClass);
+        return result.getResultList();
     }
 
     public List<Carrera> getCarrrerasConInscriptos() {

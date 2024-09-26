@@ -3,6 +3,7 @@ import Helpers.CriterioOrdenamientoNombre;
 import Repositories.CarreraRepository;
 import Repositories.EstudianteRepository;
 import Repositories.InscripcionRepository;
+import Services.ReporteService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 
@@ -46,8 +47,8 @@ public class Main {
 //        result.forEach(System.out::println);
 
 //        CriterioOrdenamiento criterioNombre = new CriterioOrdenamientoNombre('c');
-
-        System.out.println(cr.getCarrrerasConInscriptos());
+        ReporteService serviceDTO = new ReporteService();
+        serviceDTO.getReporte();
     }
 
 }

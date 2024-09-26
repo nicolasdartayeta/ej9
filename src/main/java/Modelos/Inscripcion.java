@@ -38,6 +38,18 @@ public class Inscripcion {
         return fecha_graduacion;
     }
 
+    public Carrera getCarrera(){
+        return this.carrera;
+    }
+
+    public int getIdEstudiante(){
+        return this.inscripcion_id_estudiante;
+    }
+
+    public int getIdCarrera(){
+        return this.inscripcion_id_carrera;
+    }
+
     @Override
     public String toString() {
         return "Inscripcion{" +

@@ -1,66 +1,74 @@
 package DTOs;
 
 import Modelos.Carrera;
+import Modelos.Estudiante;
 
+import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReporteCarrerasDTO {
     public class ItemReporte {
-        public class DatosAnio {
-            private int anio;
-            private int inscriptos;
-            private int egresados;
-
-            public DatosAnio(int anio, int inscriptos, int egresados) {
-                this.anio = anio;
-                this.inscriptos = inscriptos;
-                this.egresados = egresados;
+        public class EstudianteFecha{
+            private Estudiante estudiante;
+            private Date fecha_inscripcion;
+            
+            public EstudianteFecha(Estudiante estudiante){
+                this.estudiante = estudiante;
             }
 
-            public int getAnio() {
-                return anio;
-            }
-
-            public void setAnio(int anio) {
-                this.anio = anio;
-            }
-
-            public int getInscriptos() {
-                return inscriptos;
-            }
-
-            public void setInscriptos(int inscriptos) {
-                this.inscriptos = inscriptos;
-            }
-
-            public int getEgresados() {
-                return egresados;
-            }
-
-            public void setEgresados(int egresados) {
-                this.egresados = egresados;
+            public void setInscripcion(Date inscripcion){
+                this.fecha_inscripcion = inscripcion;
             }
         }
 
         private Carrera carrera;
-        List<DatosAnio> datosAnios;
+        List<EstudianteFecha> estudiantes;
 
         public ItemReporte(Carrera carrera) {
             this.carrera = carrera;
+            estudiantes = new ArrayList<>();
         }
 
         public Carrera getCarrera() {
             return carrera;
         }
 
-        public void addItem(DatosAnio datosAnio) {
-            this.datosAnios.add(datosAnio);
+
+        public void addItem(EstudianteFecha estudiante) {
+            this.estudiantes.add(estudiante);
         }
 
-        public List<DatosAnio> getDatosAnios() {
-            return datosAnios;
+        public List<EstudianteFecha> getEstudiantes() {
+            return estudiantes;
         }
     }
 
     private List<ItemReporte> itemReporte;
+
+    public ReporteCarrerasDTO(){
+        this.itemReporte = new ArrayList<>();
+    }
+
+    public void addCarrera(Carrera carrera){
+        ItemReporte item = new ItemReporte(carrera);
+        this.itemReporte.add(item);
+    }
+
+    public void addItemReporte(ItemReporte i){
+        this.itemReporte.add(i);
+    }
+
+    public String toString(){
+        String result = "DTO{\n";
+        for (ItemReporte item: itemReporte){
+            result = result + item.carrera + "=[{\n";
+            for (ItemReporte.EstudianteFecha estudiante: item.estudiantes){
+                result = result + estudiante.estudiante + "|| fecha inscripcion: " + estudiante.fecha_inscripcion + "}\n";
+            }
+            result = result + "]\n";
+        }
+
+        return result;
+    }
 }

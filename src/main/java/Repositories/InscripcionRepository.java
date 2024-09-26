@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import Helpers.CriterioBusqueda;
+import Helpers.CriterioOrdenamiento;
 
 public class InscripcionRepository extends BaseRepository<Inscripcion, Integer> {
     public InscripcionRepository(EntityManager em) {
@@ -34,5 +35,20 @@ public class InscripcionRepository extends BaseRepository<Inscripcion, Integer> 
         em.createQuery(jqpl).setParameter("id_estudiante",  estudiante.getId()).setParameter("id_carrera", carrera.getId()).setParameter("fecha_graduacion", fecha_graduacion).executeUpdate();
 
         em.getTransaction().commit();
+    }
+
+    public Inscripcion findById(int id_carrera, int id_estudiante){
+        
+        em.getTransaction().begin();
+        String q = "SELECT i FROM Inscripcion i WHERE :id_carrera = i.inscripcion_id_carrera AND :id_estudiante = i.inscripcion_id_estudiante";
+        TypedQuery<Inscripcion> result = em.createQuery(q, this.entityClass).setParameter("id_carrera", id_carrera).setParameter("id_estudiante", id_estudiante);
+        em.getTransaction().commit();
+        return result.getSingleResult();
+    }
+
+    public List<Inscripcion> getAllCarrerasOrdenadas(CriterioOrdenamiento crit){
+        String q = "SELECT i FROM Inscripcion i ORDER BY " + crit.getCriterioOrdenamiento();
+        TypedQuery<Inscripcion> result = em.createQuery(q, this.entityClass);
+        return result.getResultList();
     }
 }
